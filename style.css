@@ -1,0 +1,316 @@
+/* 폰트 불러오기 (사이트 전체에서 이 폰트 하나만 사용) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+/*
+  사이트 주요 색상 (3가지)
+  색을 바꾸고 싶으면 여기 값만 수정하면 사이트 전체에 적용됩니다.
+*/
+:root {
+  --color-bg: #FAF6EF;     /* 배경: 밝은 크림 */
+  --color-text: #3E2C23;   /* 메인 텍스트: 짙은 브라운 */
+  --color-point: #8B5E3C;  /* 포인트: 따뜻한 중간톤 브라운 */
+
+  /* 위 텍스트 색을 흐리게 만든 보조색 (선, 작은 글씨용) */
+  --color-line: rgba(62, 44, 35, 0.15);
+  --color-sub: rgba(62, 44, 35, 0.6);
+}
+
+/* 기본 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;   /* 메뉴 클릭 시 부드럽게 스크롤 */
+  scroll-padding-top: 60px;  /* 상단 고정 메뉴(높이 60px)에 제목이 가려지지 않도록 */
+}
+
+/*
+  글자 크기 정리
+  - Hero 제목 : 56px
+  - 섹션 제목 : 36px
+  - 소제목    : 20px (메뉴 이름)
+  - 본문      : 17px
+  - 작은 글씨 : 14px (Footer)
+*/
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+}
+
+/* 제목 공통: 본문보다 행간을 좁게, 굵게 */
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+/* 버튼은 기본적으로 폰트를 물려받지 않아서 따로 지정 */
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* 가운데 정렬용 공통 박스 */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* 1. Navigation */
+.nav {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.nav-menu a:hover {
+  color: var(--color-point);
+  text-decoration: underline;
+}
+
+/* 2. Hero */
+.hero {
+  padding: 140px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+/* 2열 배치: 왼쪽 텍스트 5 : 오른쪽 이미지 6 */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  align-items: center;   /* 텍스트를 이미지 높이의 가운데에 */
+  gap: 64px;
+}
+
+/* 제목 위 작은 브랜드명 (로고와 같은 스타일) */
+.hero-brand {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-point);
+}
+
+/* 이미지 영역: hero.jpg가 없을 때도 자리가 보이도록 배경색 지정 */
+.hero-img {
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  background-color: var(--color-line);
+  overflow: hidden;
+}
+
+.hero-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 사진 비율이 달라도 영역에 꽉 차게 */
+}
+
+.hero h1 {
+  font-size: 56px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 48px;
+}
+
+.btn {
+  padding: 14px 36px;
+  border: 1px solid var(--color-point);
+  background-color: var(--color-point);
+  color: var(--color-bg);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 마우스를 올리면 한 단계 진한 브라운(텍스트 색)으로 */
+.btn:hover {
+  border-color: var(--color-text);
+  background-color: var(--color-text);
+}
+
+/* 공통 섹션 */
+.section {
+  padding: 140px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+/* 섹션 안에서 문단이 이어질 때 문단 사이 간격 */
+.section p + p {
+  margin-top: 12px;
+}
+
+/* 4. Menu */
+.menu-list {
+  display: flex;   /* 데스크톱: 카드 3개를 한 줄로 */
+  gap: 32px;       /* 카드 사이 간격 */
+}
+
+.menu-card {
+  flex: 1;         /* 3개 카드가 같은 너비로 */
+  min-width: 0;
+  display: flex;
+  flex-direction: column;   /* 이미지 → 이름 → 설명 → 가격을 세로로 */
+  padding: 28px 28px 32px;
+  background-color: #fff;   /* 크림 배경 위에서 카드가 살짝 떠 보이도록 밝게 */
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(62, 44, 35, 0.05);   /* 아주 약한 그림자 */
+}
+
+/* 메뉴 이미지 영역 (4:3 비율) */
+.menu-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  background-color: var(--color-line);
+  color: var(--color-sub);
+  font-size: 14px;
+  overflow: hidden;
+}
+
+/* 이미지를 넣으면 영역에 꽉 차게 */
+.menu-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 메뉴 이름: 조금 더 크고 굵게 */
+.menu-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+/* 메뉴 설명: 읽기 편한 크기와 행간 */
+.menu-card p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* 가격: 카드 맨 아래에 고정 (설명 길이가 달라도 3개 카드의 가격 위치가 맞춰짐) */
+.price {
+  display: block;
+  margin-top: auto;
+  padding-top: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-point);
+}
+
+/* 7. Footer */
+.footer {
+  padding: 48px 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-sub);
+}
+
+/* 화면이 좁을 때 (모바일) */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  /* 모바일은 화면이 작으므로 간격을 조금 줄임 */
+  .container {
+    padding: 0 20px;
+  }
+
+  .hero {
+    padding: 80px 0;
+  }
+
+  /* 모바일: 텍스트 위, 이미지 아래로 한 줄씩 */
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .section {
+    padding: 96px 0;
+  }
+
+  .section h2 {
+    margin-bottom: 28px;
+  }
+
+  .menu-list {
+    gap: 20px;
+  }
+
+  .menu-card {
+    padding: 28px 24px;
+  }
+
+  .nav-menu {
+    gap: 12px;
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .section h2 {
+    font-size: 28px;
+  }
+
+  .menu-list {
+    flex-direction: column;
+  }
+}

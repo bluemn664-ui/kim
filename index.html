@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MELLOW BEAN</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. Navigation -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#hero" class="logo">MELLOW BEAN</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 2. Hero -->
+  <section id="hero" class="hero">
+    <div class="container hero-inner">
+      <!-- 왼쪽: 텍스트 -->
+      <div class="hero-text">
+        <span class="hero-brand">MELLOW BEAN</span>
+        <h1>A Slow Moment in Your Day</h1>
+        <p>바쁜 하루 속에서 잠시 쉬어갈 수 있는 커피와 디저트를 준비합니다.</p>
+        <button type="button" class="btn" id="menuBtn">메뉴 보기</button>
+      </div>
+
+      <!-- 오른쪽: 이미지 (hero.jpg를 index.html과 같은 폴더에 넣으세요) -->
+      <div class="hero-img">
+        <img src="hero.jpg" alt="MELLOW BEAN 카페 모습">
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. About -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Mellow Bean</h2>
+      <p>
+        MELLOW BEAN은 편안한 공간에서 좋은 커피와 디저트를 즐길 수 있는 작은 카페입니다.<br>
+        천천히 머물며 일상의 여유를 느낄 수 있는 공간을 지향합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- 4. Menu -->
+  <section id="menu" class="section">
+    <div class="container">
+      <h2>Menu</h2>
+      <!-- 아래 카드들은 기본값입니다. Supabase에서 메뉴를 불러오면 script.js가 이 자리를 새 카드로 바꿉니다. -->
+      <div class="menu-list" id="menuList">
+        <!--
+          메뉴 이미지 넣는 법:
+          <div class="menu-img">이미지 영역</div> 대신
+          <div class="menu-img"><img src="이미지파일.jpg" alt="메뉴 이름"></div> 로 바꾸세요.
+        -->
+        <div class="menu-card">
+          <div class="menu-img">이미지 영역</div>
+          <h3>Cream Latte</h3>
+          <p>부드러운 크림과 에스프레소가 어우러진 시그니처 라떼</p>
+          <span class="price">6,500원</span>
+        </div>
+        <div class="menu-card">
+          <div class="menu-img">이미지 영역</div>
+          <h3>Classic Tiramisu</h3>
+          <p>진한 마스카포네 크림과 커피 향을 담은 수제 티라미수</p>
+          <span class="price">7,000원</span>
+        </div>
+        <div class="menu-card">
+          <div class="menu-img">이미지 영역</div>
+          <h3>Mellow Ade</h3>
+          <p>레몬과 허브를 사용한 상큼한 시그니처 에이드</p>
+          <span class="price">6,000원</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Location -->
+  <section id="location" class="section">
+    <div class="container">
+      <h2>Visit Us</h2>
+      <p>주소: 대구광역시 중구 멜로우로 12</p>
+      <p>영업시간: 매일 10:00 - 21:00</p>
+    </div>
+  </section>
+
+  <!-- 6. Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Instagram: @mellowbean</p>
+      <p>Email: hello@mellowbean.com</p>
+    </div>
+  </section>
+
+  <!-- 7. Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 MELLOW BEAN. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Supabase 라이브러리 (script.js보다 먼저 불러와야 함) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
